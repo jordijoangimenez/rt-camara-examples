@@ -447,6 +447,110 @@ collection:
             send: true
             store: true
           rebuildPath: true
+  - name: (Optional) QoS Profiles
+    meta:
+      id: fld_c838bc5602264894b585bc34534dea2e
+      created: 1778667939076
+      modified: 1778667956377
+      sortKey: -1778667939076
+      description: Manage QoS Profiles
+    children:
+      - url: "{{ _.base_url }}/retrieve-qos-profiles"
+        name: Retrieve QoS profiles
+        meta:
+          id: req_bd7e1d8e49184c8d93f5d1c2c37a209b
+          created: 1778667939082
+          modified: 1778667939082
+          isPrivate: false
+          description: >
+            Returns all QoS Profiles that match the given criteria.
+
+            **NOTES:**
+
+            - The access token may be either a 2-legged or 3-legged access
+            token.
+
+            - If the access token is 3-legged, all returned QoS Profiles will be
+            available to the subject (device) associated with the access token.
+
+            - If the access token is 2-legged and a device filter is provided,
+            all returned QoS Profiles will be available to that device. If
+            multiple device identifiers are provided within the device property,
+            only QoS Profiles available to the device identifier chosen by the
+            implementation will be returned, even if the identifiers do not
+            match the same device. API provider does not perform any logic to
+            validate/correlate that the indicated device identifiers match the
+            same device. No error should be returned if the identifiers are
+            otherwise valid to prevent API consumers correlating different
+            identifiers with a given end user.
+
+            - This call uses the POST method instead of GET to comply with the
+            CAMARA Commonalities guidelines for sending sensitive or complex
+            data in API calls. Since the device field may contain personally
+            identifiable information, it should not be sent via GET.
+            Additionally, this call may include complex data structures.
+              [CAMARA API Design Guidelines](https://github.com/camaraproject/Commonalities/blob/r3.3/documentation/API-design-guidelines.md#post-or-get-for-transferring-sensitive-or-complex-data)
+          sortKey: -1778667939082
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "device": {
+                "phoneNumber": "+123456789",
+                "networkAccessIdentifier": "123456789@domain.com",
+                "ipv4Address": {
+                  "publicAddress": "203.0.113.0",
+                  "publicPort": 59765
+                },
+                "ipv6Address": "2001:db8:85a3:8d3:1319:8a2e:370:7344"
+              },
+              "name": "voice",
+              "status": "string"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/qos-profiles/{{ _.name }}"
+        name: Get QoS Profile for a given name
+        meta:
+          id: req_e890f4d27307495d972a0ab9380d305b
+          created: 1778667939087
+          modified: 1778667939087
+          isPrivate: false
+          description: >
+            Returns a QoS Profile that matches the given name.
+
+
+            The access token may be either a 2-legged or 3-legged access token.
+            If the access token is 3-legged, a QoS Profile is only returned if
+            available to all subjects associated with the access token.
+          sortKey: -1778667939087
+        method: GET
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
@@ -458,7 +562,7 @@ environments:
   meta:
     id: env_d2c2256736f3cea3ebedc56669b7eb5879f60437
     created: 1778660861022
-    modified: 1778662105858
+    modified: 1778667939065
     isPrivate: false
   data:
     base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
@@ -574,4 +678,15 @@ environments:
       data:
         scheme: http
         base_path: /dedicated-network-areas/vwip
+        host: localhost:9091
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_36fe20664ad14820bb579e6c092d0d85
+        created: 1778667939071
+        modified: 1778667939071
+        isPrivate: false
+        sortKey: 1778667939071
+      data:
+        scheme: http
+        base_path: /qos-profiles/vwip
         host: localhost:9091

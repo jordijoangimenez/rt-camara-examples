@@ -231,7 +231,7 @@ collection:
         meta:
           id: req_e5cf4e7d0519438a8ddc34e432393f38
           created: 1778666493043
-          modified: 1778666634037
+          modified: 1778667110852
           isPrivate: false
           description: >
             This operation reserves a Quality of Service (QoS) booking for a
