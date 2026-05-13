@@ -1,6 +1,6 @@
 type: collection.insomnia.rest/5.0
 schema_version: "5.1"
-name: QoS Booking
+name: Using QoS Booking
 meta:
   id: wrk_549f36dd81fe4ffdb6355e6ea6b3a6cf
   created: 1778666243512
