@@ -1,6 +1,6 @@
 type: collection.insomnia.rest/5.0
 schema_version: "5.1"
-name: Dedicated Networks
+name: Using Dedicated Networks
 meta:
   id: wrk_26122302ab584e528748cd54c6409ca9
   created: 1778660860987
