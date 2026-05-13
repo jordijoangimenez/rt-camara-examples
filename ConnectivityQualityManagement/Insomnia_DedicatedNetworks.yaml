@@ -46,14 +46,44 @@ collection:
         meta:
           id: req_e93664feb27142bfb0680677b7922a2e
           created: 1778661142492
-          modified: 1778663006706
+          modified: 1778688589148
           isPrivate: false
           description: ""
           sortKey: -1778661142594
         method: POST
         body:
           mimeType: application/json
-          text: "null"
+          text: >-
+            {
+              "networkProfileId": "b69e5404-3871-448d-8f9f-11dc5d29a4c8",
+              "serviceArea": {
+                "areaType": "POLYGON",
+                "boundary": [
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  },
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  },
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  }
+                ]
+              },
+              "requestedTimeWindow": {
+                "startTime": "2024-11-29T13:00:00Z",
+                "endTime": "2024-11-29T14:00:00Z"
+              },
+              "webhook": {
+                "sink": "https://application.example.com/webhooks",
+                "types": [
+                  "org.camaraproject.dedicated-network.v0.network-status-changed"
+                ]
+              }
+            }
         headers:
           - name: Content-Type
             value: application/json
@@ -159,7 +189,7 @@ collection:
         meta:
           id: req_ba83131672c94072bda1dcba1622b13f
           created: 1778661162264
-          modified: 1778661162264
+          modified: 1778688364453
           isPrivate: false
           description: >
             Create an access to a dedicated network with given configuration,
@@ -171,7 +201,17 @@ collection:
         method: POST
         body:
           mimeType: application/json
-          text: "null"
+          text: |-
+            {
+              "networkId": "b69e5404-3871-448d-8f9f-11dc5d29a4c8",
+              "device": {
+                "phoneNumber": "+49123456789"
+              },
+              "defaultQosProfileName": "QCI_1_voice",
+              "allowedQosProfileNames": [
+                "QCI_1_voice"
+              ]
+            }
         headers:
           - name: Content-Type
             value: application/json
@@ -274,7 +314,7 @@ collection:
         meta:
           id: req_fbbc178121834da5901debc87f983e4a
           created: 1778661162267
-          modified: 1778663119667
+          modified: 1778688758245
           isPrivate: false
           description: |
             Add devices to the access
@@ -282,7 +322,17 @@ collection:
         method: POST
         body:
           mimeType: application/json
-          text: "null"
+          text: |-
+            {
+              "networkId": "b69e5404-3871-448d-8f9f-11dc5d29a4c8",
+              "device": {
+                "phoneNumber": "+49123456789"
+              },
+              "defaultQosProfileName": "QCI_1_voice",
+              "allowedQosProfileNames": [
+                "QCI_1_voice"
+              ]
+            }
         headers:
           - name: Content-Type
             value: application/json
@@ -300,14 +350,24 @@ collection:
         meta:
           id: req_83282a08d7774f72a560092f9a83446c
           created: 1778661162268
-          modified: 1778661162268
+          modified: 1778688802365
           isPrivate: false
           description: Remove devices from the access
           sortKey: -1778661162268
         method: POST
         body:
           mimeType: application/json
-          text: "null"
+          text: |-
+            {
+              "networkId": "b69e5404-3871-448d-8f9f-11dc5d29a4c8",
+              "device": {
+                "phoneNumber": "+49123456789"
+              },
+              "defaultQosProfileName": "QCI_1_voice",
+              "allowedQosProfileNames": [
+                "QCI_1_voice"
+              ]
+            }
         headers:
           - name: Content-Type
             value: application/json
@@ -390,7 +450,7 @@ collection:
         meta:
           id: req_4cc1f14c1da74a0c812725e6270859e0
           created: 1778662105901
-          modified: 1778662105901
+          modified: 1778688246370
           isPrivate: false
           description: ""
           sortKey: -1778662105901
@@ -404,13 +464,39 @@ collection:
                 "longitude": 7.10066
               },
               "overlappingArea": {
-                "areaType": "string"
+                "areaType": "POLYGON",
+                "boundary": [
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  },
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  },
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  }
+                ]
               },
               "coveringArea": {
-                "areaType": "string"
+                "areaType": "POLYGON",
+                "boundary": [
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  },
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  },
+                  {
+                    "latitude": 50.735851,
+                    "longitude": 7.10066
+                  }
+                ]
               },
-              "byName": "string",
-              "byNetworkProfileId": "string",
               "byQosProfileName": "QCI_1_voice"
             }
         headers:

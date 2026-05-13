@@ -20,7 +20,7 @@ collection:
         meta:
           id: req_bf3854181b60487f924e85395661d4f7
           created: 1778666482980
-          modified: 1778666591926
+          modified: 1778687546258
           isPrivate: false
           description: >
             Triggers a new booking to assign certain QoS Profile to certain
@@ -62,7 +62,29 @@ collection:
         method: POST
         body:
           mimeType: application/json
-          text: "null"
+          text: |-
+            {
+              "qosProfile": "QOS_L",
+              "device": {
+                "phoneNumber": "+123456789",
+                "networkAccessIdentifier": "123456789@domain.com",
+                "ipv4Address": {
+                  "publicAddress": "203.0.113.0",
+                  "privateAddress": "203.0.113.0",
+                  "publicPort": 59765
+                },
+                "ipv6Address": "2001:db8:85a3:8d3:1319:8a2e:370:7344"
+              },
+              "startTime": "2024-06-01T12:00:00Z",
+              "duration": 3600,
+              "sink": "https://application-server.com/notifications",
+              "sinkCredential": {
+                "credentialType": "ACCESSTOKEN",
+                "accessToken": "c9876-4321-a",
+                "accessTokenExpiresUtc": "2024-06-01T13:30:00Z",
+                "accessTokenType": "bearer"
+              }
+            }
         headers:
           - name: Content-Type
             value: application/json
@@ -164,7 +186,7 @@ collection:
         meta:
           id: req_abd038a4ab4e42bcb0b9ebc492609ecf
           created: 1778666482986
-          modified: 1778666482986
+          modified: 1778687569044
           isPrivate: false
           description: >
             Querying for QoS Booking resource information details for a device.
@@ -196,6 +218,7 @@ collection:
                 "networkAccessIdentifier": "123456789@domain.com",
                 "ipv4Address": {
                   "publicAddress": "203.0.113.0",
+                  "privateAddress": "203.0.113.0",
                   "publicPort": 59765
                 },
                 "ipv6Address": "2001:db8:85a3:8d3:1319:8a2e:370:7344"
@@ -231,7 +254,7 @@ collection:
         meta:
           id: req_e5cf4e7d0519438a8ddc34e432393f38
           created: 1778666493043
-          modified: 1778667110852
+          modified: 1778687340200
           isPrivate: false
           description: >
             This operation reserves a Quality of Service (QoS) booking for a
@@ -268,7 +291,29 @@ collection:
         method: POST
         body:
           mimeType: application/json
-          text: "null"
+          text: |-
+            {
+              "qosProfile": "QOS_L",
+              "device": {
+                "phoneNumber": "+123456789",
+                "networkAccessIdentifier": "123456789@domain.com",
+                "ipv4Address": {
+                  "publicAddress": "203.0.113.0",
+                  "privateAddress": "203.0.113.0",
+                  "publicPort": 59765
+                },
+                "ipv6Address": "2001:db8:85a3:8d3:1319:8a2e:370:7344"
+              },
+              "startTime": "2024-06-01T12:00:00Z",
+              "duration": 3600,
+              "sink": "https://application-server.com/notifications",
+              "sinkCredential": {
+                "credentialType": "ACCESSTOKEN",
+                "accessToken": "c9876-4321-a",
+                "accessTokenExpiresUtc": "2024-06-01T13:30:00Z",
+                "accessTokenType": "bearer"
+              }
+            }
         headers:
           - name: Content-Type
             value: application/json
@@ -364,7 +409,7 @@ collection:
         meta:
           id: req_539c34625faf412cb4137b04638ba7ec
           created: 1778666493044
-          modified: 1778666573115
+          modified: 1778687584539
           isPrivate: false
           description: >
             This endpoint allows the end user to assign one or more devices to
@@ -400,20 +445,15 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "devices": [
-                {
-                  "phoneNumber": "+123456789",
-                  "networkAccessIdentifier": "123456789@domain.com",
-                  "ipv4Address": {
-                    "publicAddress": "203.0.113.0",
-                    "publicPort": 59765
-                  },
-                  "ipv6Address": "2001:db8:85a3:8d3:1319:8a2e:370:7344"
-                }
-              ],
-              "sink": "https://endpoint.example.com/sink",
-              "sinkCredential": {
-                "credentialType": "string"
+              "device": {
+                "phoneNumber": "+123456789",
+                "networkAccessIdentifier": "123456789@domain.com",
+                "ipv4Address": {
+                  "publicAddress": "203.0.113.0",
+                  "privateAddress": "203.0.113.0",
+                  "publicPort": 59765
+                },
+                "ipv6Address": "2001:db8:85a3:8d3:1319:8a2e:370:7344"
               }
             }
         headers:
@@ -479,7 +519,7 @@ collection:
         meta:
           id: req_6fa23a60a12a4f1cb550d7c73b8296f9
           created: 1778666493045
-          modified: 1778666493045
+          modified: 1778687639512
           isPrivate: false
           description: >
             This endpoint will release one or more assigned devices. The timing
@@ -500,27 +540,10 @@ collection:
             API calls. Since the device field may contain personally
             identifiable information, it should not be sent via DELETE.
           sortKey: -1778666493045
-        method: POST
+        method: DELETE
         body:
           mimeType: application/json
-          text: |-
-            {
-              "devices": [
-                {
-                  "phoneNumber": "+123456789",
-                  "networkAccessIdentifier": "123456789@domain.com",
-                  "ipv4Address": {
-                    "publicAddress": "203.0.113.0",
-                    "publicPort": 59765
-                  },
-                  "ipv6Address": "2001:db8:85a3:8d3:1319:8a2e:370:7344"
-                }
-              ],
-              "sink": "https://endpoint.example.com/sink",
-              "sinkCredential": {
-                "credentialType": "string"
-              }
-            }
+          text: ""
         headers:
           - name: Content-Type
             value: application/json
@@ -541,7 +564,7 @@ collection:
         meta:
           id: req_e39fc35983fb43dcbc52fac86e3a80b0
           created: 1778666493046
-          modified: 1778666493046
+          modified: 1778687377603
           isPrivate: false
           description: >
             Querying for QoS Booking resource information details for a device.
