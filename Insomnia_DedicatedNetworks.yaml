@@ -1,0 +1,577 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Dedicated Networks
+meta:
+  id: wrk_26122302ab584e528748cd54c6409ca9
+  created: 1778660860987
+  modified: 1778660860987
+  description: ""
+collection:
+  - name: Networks
+    meta:
+      id: fld_5b8dbf3558fd4e5d9cd7dad1ca650955
+      created: 1778661142490
+      modified: 1778663024696
+      sortKey: -1778661623111
+      description: Manage a dedicated network
+    children:
+      - url: "{{ _.base_url }}/networks"
+        name: Get a list of dedicated networks
+        meta:
+          id: req_f74f1a0ded0a46c7b4a9885d62a1e32c
+          created: 1778661142491
+          modified: 1778663017035
+          isPrivate: false
+          description: ""
+          sortKey: -1778661142544
+        method: GET
+        parameters:
+          - name: name
+            value: string
+            disabled: true
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/networks"
+        name: Request to create a dedicated network
+        meta:
+          id: req_e93664feb27142bfb0680677b7922a2e
+          created: 1778661142492
+          modified: 1778663006706
+          isPrivate: false
+          description: ""
+          sortKey: -1778661142594
+        method: POST
+        body:
+          mimeType: application/json
+          text: "null"
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/networks/{{ _.networkId }}"
+        name: Get the current information about a dedicated network
+        meta:
+          id: req_18a79a8953184dcea944f5ba4cc98d6c
+          created: 1778661142493
+          modified: 1778663019006
+          isPrivate: false
+          description: ""
+          sortKey: -1778661142519
+        method: GET
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/networks/{{ _.networkId }}"
+        name: Delete a dedicated network
+        meta:
+          id: req_eb3ddadc35cb412397daebf83026e9c7
+          created: 1778661142494
+          modified: 1778661142494
+          isPrivate: false
+          description: ""
+          sortKey: -1778661142494
+        method: DELETE
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Accesses
+    meta:
+      id: fld_edb0200b38dc4ece98f64d6f24db6fba
+      created: 1778661162230
+      modified: 1778663146394
+      sortKey: -1778661392682.5
+      description: Manage accesses to a dedicated network for devices
+    children:
+      - url: "{{ _.base_url }}/accesses"
+        name: Get a list of accesses to dedicated networks, optionally filtered for a
+          given device and/or for a given dedicated network
+        meta:
+          id: req_5978e611d79d4d929e346761b4d5da3c
+          created: 1778661162257
+          modified: 1778661162257
+          isPrivate: false
+          description: >
+            Get a list of accesses to dedicated networks, optionally filtered
+            for a given device and/or for a given dedicated network
+          sortKey: -1778661162257
+        method: GET
+        parameters:
+          - name: networkId
+            value: string
+            disabled: true
+        headers:
+          - name: x-device
+            value: phonenumber="+123456789"
+            disabled: true
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accesses"
+        name: Create an access to a dedicated network with given configuration,
+          optionally including devices
+        meta:
+          id: req_ba83131672c94072bda1dcba1622b13f
+          created: 1778661162264
+          modified: 1778661162264
+          isPrivate: false
+          description: >
+            Create an access to a dedicated network with given configuration,
+            optionally including devices
+
+            **NOTE:**
+              - This API recommends usage of a two-legged access token, but if the invoker uses a three-legged token, the corresponding `device` identifier MUST be provided and must match the identifier in the access token.
+          sortKey: -1778661162264
+        method: POST
+        body:
+          mimeType: application/json
+          text: "null"
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accesses/{{ _.accessId }}"
+        name: Read access information
+        meta:
+          id: req_0b8b207bd866494b8a568fe89074f3a7
+          created: 1778661162265
+          modified: 1778661162265
+          isPrivate: false
+          description: |
+            Read access information
+          sortKey: -1778661162265
+        method: GET
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accesses/{{ _.accessId }}"
+        name: Delete an access
+        meta:
+          id: req_a8a4bb7640a648c2a42775bfe3d84a78
+          created: 1778661162265
+          modified: 1778661162265
+          isPrivate: false
+          description: |
+            Delete an access
+          sortKey: -1778661162265
+        method: DELETE
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Devices
+    meta:
+      id: fld_342cfbf75b80467da7af6cfa4990ef02
+      created: 1778661162254
+      modified: 1778661162254
+      sortKey: -1778661162254
+      description: Manage devices of an access to a dedicated network
+    children:
+      - url: "{{ _.base_url }}/accesses/{{ _.accessId }}/devices"
+        name: Read a paged list of devices with information included in the access,
+          optionally filtered by device status
+        meta:
+          id: req_4cd5022786d4463b937e16d3b914be1e
+          created: 1778661162266
+          modified: 1778663127881
+          isPrivate: false
+          description: >
+            Read a paged list of devices with information included in the
+            access, optionally filtered by device status
+          sortKey: -1778661162468
+        method: GET
+        parameters:
+          - name: perPage
+            value: "10"
+            disabled: true
+          - name: seek
+            value: phonenumber="+123456789"
+            disabled: true
+          - name: deviceStatus
+            value: string
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accesses/{{ _.accessId }}/devices/add"
+        name: Add devices to the access
+        meta:
+          id: req_fbbc178121834da5901debc87f983e4a
+          created: 1778661162267
+          modified: 1778663119667
+          isPrivate: false
+          description: |
+            Add devices to the access
+          sortKey: -1778661162368
+        method: POST
+        body:
+          mimeType: application/json
+          text: "null"
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/accesses/{{ _.accessId }}/devices/remove"
+        name: Remove devices from the access
+        meta:
+          id: req_83282a08d7774f72a560092f9a83446c
+          created: 1778661162268
+          modified: 1778661162268
+          isPrivate: false
+          description: Remove devices from the access
+          sortKey: -1778661162268
+        method: POST
+        body:
+          mimeType: application/json
+          text: "null"
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Profiles
+    meta:
+      id: fld_f6bcf523f6b04906b38ecdc83fa250a5
+      created: 1778662083968
+      modified: 1778663156273
+      sortKey: -1778662105968
+      description: Operations related to dedicated network profiles
+    children:
+      - url: "{{ _.base_url }}/profiles"
+        name: Read dedicated network profiles
+        meta:
+          id: req_5835c1d57b134b938cc0d7f867ee0e78
+          created: 1778662083970
+          modified: 1778663097529
+          isPrivate: false
+          description: ""
+          sortKey: -1778662084071
+        method: GET
+        parameters:
+          - name: name
+            value: string
+            disabled: true
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/profiles/{{ _.profileId }}"
+        name: Read a dedicated network profile
+        meta:
+          id: req_9b8df23ac88243bf8d32dfd54f97cb75
+          created: 1778662083971
+          modified: 1778662083971
+          isPrivate: false
+          description: ""
+          sortKey: -1778662083971
+        method: GET
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Areas
+    meta:
+      id: fld_64d361f9d8474438862a512e4cb1370f
+      created: 1778662105868
+      modified: 1778662105868
+      sortKey: -1778662105868
+      description: Discovery and management of geographical network service areas.
+    children:
+      - url: "{{ _.base_url }}/retrieve-service-areas"
+        name: Retrieve dedicated network service areas, filtered by additional search
+          criteria
+        meta:
+          id: req_4cc1f14c1da74a0c812725e6270859e0
+          created: 1778662105901
+          modified: 1778662105901
+          isPrivate: false
+          description: ""
+          sortKey: -1778662105901
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "atLocation": {
+                "latitude": 50.735851,
+                "longitude": 7.10066
+              },
+              "overlappingArea": {
+                "areaType": "string"
+              },
+              "coveringArea": {
+                "areaType": "string"
+              },
+              "byName": "string",
+              "byNetworkProfileId": "string",
+              "byQosProfileName": "QCI_1_voice"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/areas/{{ _.areaId }}"
+        name: Read a dedicated network service area
+        meta:
+          id: req_15471f9f6589433b8b4bb0bb173434f9
+          created: 1778662105903
+          modified: 1778662447267
+          isPrivate: false
+          description: ""
+          sortKey: -1778662105903
+        method: GET
+        headers:
+          - name: x-correlator
+            value: b4333c46-49c0-4f62-80d7-f0ef930f1c46
+            disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_d2c2256736f3cea3ebedc56669b7eb5879f60437
+    created: 1778660861027
+    modified: 1778660861027
+environments:
+  name: Base Environment
+  meta:
+    id: env_d2c2256736f3cea3ebedc56669b7eb5879f60437
+    created: 1778660861022
+    modified: 1778662105858
+    isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_7864387dcd7c4d65b2b0352c9882546d
+        created: 1778660947731
+        modified: 1778660947731
+        isPrivate: false
+        sortKey: 1778660947731
+      data:
+        scheme: http
+        base_path: /dedicated-network/vwip
+        host: localhost:9091
+        bearerToken: bearerToken
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_e0dc67d4f02444d4b390f9c1a912e06c
+        created: 1778660958294
+        modified: 1778660958294
+        isPrivate: false
+        sortKey: 1778660958294
+      data:
+        scheme: http
+        base_path: /dedicated-network-accesses/vwip
+        host: localhost:9091
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_2c9e0db55f82478ca8d291e762260f26
+        created: 1778660974702
+        modified: 1778660974702
+        isPrivate: false
+        sortKey: 1778660974702
+      data:
+        scheme: http
+        base_path: /dedicated-network-areas/vwip
+        host: localhost:9091
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_ddc9ae0470ae4e6881f6d8dab22ef4d4
+        created: 1778660983818
+        modified: 1778660983818
+        isPrivate: false
+        sortKey: 1778660983818
+      data:
+        scheme: http
+        base_path: /dedicated-network-profiles/vwip
+        host: localhost:9091
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_8cf5c6519c834873a7ca4d4ab8f00f85
+        created: 1778661079528
+        modified: 1778661079528
+        isPrivate: false
+        sortKey: 1778661079528
+      data:
+        scheme: http
+        base_path: /dedicated-network-areas/vwip
+        host: localhost:9091
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_3f057bd8e00f4cf68a7eed3d60cc1e72
+        created: 1778661142489
+        modified: 1778661142489
+        isPrivate: false
+        sortKey: 1778661142489
+      data:
+        scheme: http
+        base_path: /dedicated-network/vwip
+        host: localhost:9091
+        bearerToken: bearerToken
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_c0bfb89b6b4943df8863a0bae53a5fc5
+        created: 1778661162224
+        modified: 1778661162224
+        isPrivate: false
+        sortKey: 1778661162224
+      data:
+        scheme: http
+        base_path: /dedicated-network-accesses/vwip
+        host: localhost:9091
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_4ba903e6b81448feb9560157bcc806d2
+        created: 1778661183726
+        modified: 1778661183726
+        isPrivate: false
+        sortKey: 1778661183726
+      data:
+        scheme: http
+        base_path: /dedicated-network-profiles/vwip
+        host: localhost:9091
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_e36a785668db4d988f91ed0114c0fbfc
+        created: 1778662083934
+        modified: 1778662083934
+        isPrivate: false
+        sortKey: 1778662083934
+      data:
+        scheme: http
+        base_path: /dedicated-network-profiles/vwip
+        host: localhost:9091
+    - name: OpenAPI env localhost:9091
+      meta:
+        id: env_c22eb73b20564b4db6233c2acc8dcf14
+        created: 1778662105863
+        modified: 1778662105863
+        isPrivate: false
+        sortKey: 1778662105863
+      data:
+        scheme: http
+        base_path: /dedicated-network-areas/vwip
+        host: localhost:9091
