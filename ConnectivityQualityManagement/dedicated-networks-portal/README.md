@@ -5,48 +5,45 @@
 ### 1. Copy and fill in your credentials
 ```bash
 cp .env.example .env
-# Edit .env — set CLIENT_ID, CLIENT_SECRET, and the API URLs
+# Edit .env — set CLIENT_ID, CLIENT_SECRET, TOKEN_URL, and the API URLs
 ```
 
 ### 2. Install dependencies
 ```bash
-cd backend && npm install
+npm install
 ```
 
 ### 3. Start the server
 ```bash
-npm run dev       # with auto-reload (nodemon)
-npm start         # production
+node server.js
 ```
 
-Open **http://localhost:3555** — the map viewer loads directly.
+Open **http://localhost:3001** — the portal loads directly.
 
 ### 4. (Optional) Expose for webhook notifications
 ```bash
-npx localtunnel --port 3555
-# Paste the URL into .env as SINK_BASE_URL, then restart
+npx localtunnel --port 3001
+# Paste the tunnel URL into .env as SINK_BASE_URL, then restart
 ```
 
 ## Project structure
 ```
 dedicated-networks-portal/
   .env.example              All required environment variables
-  backend/
-    public/
-      index.html            Map viewer (served at /)
-    src/
-      index.js              Express entry point (port 3555)
-      services/
-        tokenService.js     OAuth2 token cache + auto-refresh
-        apiService.js       Authenticated fetch wrapper
-        webhookService.js   Inbound notification store
-      routes/
-        areas.js            /api/areas
-        networks.js         /api/networks
-        accesses.js         /api/accesses + devices
-        profiles.js         /api/profiles
-        sessions.js         /api/sessions
-        webhooks.js         /webhooks (inbound) + /api/webhooks (polling)
+  server.js                 Express entry point (port 3001)
+  public/
+    index.html              Portal UI (served at /)
+  services/
+    tokenService.js         OAuth2 token cache + auto-refresh
+    apiService.js           Authenticated fetch wrapper
+    webhookService.js       Inbound notification store
+  routes/
+    areas.js                /api/areas
+    networks.js             /api/networks
+    accesses.js             /api/accesses + devices
+    profiles.js             /api/profiles
+    sessions.js             /api/sessions
+    webhooks.js             /webhooks (inbound) + /api/webhooks (polling)
 ```
 
 ## API routes
@@ -61,9 +58,9 @@ dedicated-networks-portal/
 | GET  | /api/accesses | List accesses |
 | POST | /api/accesses | Create access |
 | GET/DELETE | /api/accesses/:id | Get/delete access |
-| GET  | /api/accesses/:id/devices | List devices |
-| POST | /api/accesses/:id/devices/add | Add devices |
-| POST | /api/accesses/:id/devices/remove | Remove devices |
+| GET  | /api/accesses/:id/devices | List devices in access |
+| POST | /api/accesses/:id/devices/add | Add devices to access |
+| POST | /api/accesses/:id/devices/remove | Remove devices from access |
 | GET  | /api/profiles/network | List network profiles |
 | GET  | /api/profiles/qos | List QoS profiles |
 | POST | /api/sessions | Create QoS session |
