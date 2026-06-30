@@ -28,7 +28,7 @@ A browser-based portal for managing CAMARA Dedicated Networks. It provides a Nod
 - Real-time status updates with adaptive polling (5s while transitioning, 30s when stable)
 - Alerts on network activation and expiry
 
-See the [portal README](./ConnectivityQualityManagement/dedicated-networks-portal/README.md) for setup instructions.
+See the [portal README](./ConnectivityQualityManagement/DedicatedNetworks-management-portal/README.md) for setup instructions.
 
 #### Insomnia Collections
 
