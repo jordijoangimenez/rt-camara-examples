@@ -9,24 +9,34 @@
 
 This repository contains example files, tools and configurations for working with [CAMARA](https://camaraproject.org/) APIs. It is maintained by [5G-MAG](https://www.5g-mag.com/) as part of its work on network API standardisation and adoption.
 
+## Repository structure
+
+```
+rt-camara-examples/
+  ConnectivityQualityManagement/
+    DedicatedNetworks-management-portal/   Node.js portal for Dedicated Networks APIs
+    Insomnia_Using_DedicatedNetworks.yaml  Insomnia collection — Dedicated Networks
+    Insomnia_Using_QoSBooking.yaml         Insomnia collection — QoS Booking
+    Insomnia_Using_QualityonDemand.yaml    Insomnia collection — Quality on Demand
+```
+
 ## Contents
 
 ### Connectivity Quality Management
 
 Examples and tools for APIs within the scope of [CAMARA Connectivity Quality Management](https://github.com/camaraproject/ConnectivityQualityManagement).
 
-All contents are in the [`ConnectivityQualityManagement`](./ConnectivityQualityManagement) subfolder.
-
-#### Dedicated Networks Portal
+#### Dedicated Networks Management Portal
 
 A browser-based portal for managing CAMARA Dedicated Networks. It provides a Node.js/Express backend that proxies authenticated CAMARA API calls, and a single-page frontend for:
 
 - Browsing available service areas on an interactive map
-- Viewing network profiles and QoS options
+- Viewing network profiles and QoS properties
 - Creating, monitoring and deleting dedicated networks
 - Managing device access to a network
-- Real-time status updates with adaptive polling (5s while transitioning, 30s when stable)
-- Alerts on network activation and expiry
+- Real-time status updates with adaptive polling (5 s while transitioning or near expiry, 30 s when stable)
+- Alerts on network activation, expiry and termination
+- One-click home tab for immediate connectivity quality provisioning
 
 See the [portal README](./ConnectivityQualityManagement/DedicatedNetworks-management-portal/README.md) for setup instructions.
 
