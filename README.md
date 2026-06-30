@@ -7,10 +7,35 @@
 
 ## Introduction
 
-This repository contains files, components and common example configurations in relation to the CAMARA Project.
+This repository contains example files, tools and configurations for working with [CAMARA](https://camaraproject.org/) APIs. It is maintained by [5G-MAG](https://www.5g-mag.com/) as part of its work on network API standardisation and adoption.
+
+## Contents
 
 ### Connectivity Quality Management
 
-Includes example Insomnia collections for APIs within the scope of Connectivity Quality Management.
+Examples and tools for APIs within the scope of [CAMARA Connectivity Quality Management](https://github.com/camaraproject/ConnectivityQualityManagement).
 
-Contents can be found in the corresponding [subfolder](./ConnectivityQualityManagement).
+All contents are in the [`ConnectivityQualityManagement`](./ConnectivityQualityManagement) subfolder.
+
+#### Dedicated Networks Portal
+
+A browser-based portal for managing CAMARA Dedicated Networks. It provides a Node.js/Express backend that proxies authenticated CAMARA API calls, and a single-page frontend for:
+
+- Browsing available service areas on an interactive map
+- Viewing network profiles and QoS options
+- Creating, monitoring and deleting dedicated networks
+- Managing device access to a network
+- Real-time status updates with adaptive polling (5s while transitioning, 30s when stable)
+- Alerts on network activation and expiry
+
+See the [portal README](./ConnectivityQualityManagement/dedicated-networks-portal/README.md) for setup instructions.
+
+#### Insomnia Collections
+
+Ready-to-import API collections for [Insomnia](https://insomnia.rest/):
+
+| File | APIs covered |
+|------|-------------|
+| [`Insomnia_Using_DedicatedNetworks.yaml`](./ConnectivityQualityManagement/Insomnia_Using_DedicatedNetworks.yaml) | Dedicated Networks, Profiles, Accesses |
+| [`Insomnia_Using_QoSBooking.yaml`](./ConnectivityQualityManagement/Insomnia_Using_QoSBooking.yaml) | QoS Booking |
+| [`Insomnia_Using_QualityonDemand.yaml`](./ConnectivityQualityManagement/Insomnia_Using_QualityonDemand.yaml) | Quality on Demand |
